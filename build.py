@@ -73,3 +73,6 @@ try:
 
 except Exception, e:
     print(str(e), file=sys.stderr)
+    sys.exit(1)
+
+sys.exit(0)
