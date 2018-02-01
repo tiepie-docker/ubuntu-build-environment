@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# qemu
+x86_64_qemu-*-static.tar.gz
