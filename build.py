@@ -1,6 +1,7 @@
 from __future__ import print_function
 import os
 import sys
+import json
 from subprocess import check_call
 from argparse import ArgumentParser
 
@@ -39,9 +40,24 @@ try:
         print("Extracting qemu")
         check_call(["tar", "xvf", qemu_file_name_tgz, "-C", build_directory, qemu_file_name])
 
+    # Read packages.json:
+    packages = []
+    with open("packages.json") as f:
+        data = json.load(f)
+        if "all" in data:
+            packages += data["all"]
+        if args.suite in data:
+            if "all" in data[args.suite]:
+                packages += data[args.suite]["all"]
+            if args.arch in data[args.suite]:
+                packages += data[args.suite][args.arch]
+        packages = list(set(packages))
+
     # Create Docker file:
     docker_file = open("build/Dockerfile", "w")
     docker_file.write("FROM scratch\n")
+    docker_file.write("\n")
+
     docker_file.write("ADD " + image_file_name + " /\n")
     docker_file.write("ADD " + qemu_file_name + " /usr/bin/\n")
     docker_file.write("\n")
@@ -62,6 +78,13 @@ try:
     docker_file.write("    echo 'Apt::AutoRemove::SuggestsImportant \"false\";' > /etc/apt/apt.conf.d/docker-autoremove-suggests && \\\n")
     docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
     docker_file.write("\n")
+
+    if packages:
+        docker_file.write("RUN apt-get update && \\\n")
+        docker_file.write("    apt-get install -y " + (" \\\n" + " " * 23).join(packages) + " && \\\n")
+        docker_file.write("    apt-get clean && \\\n")
+        docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
+        docker_file.write("\n")
 
     docker_file.write("CMD [\"/bin/bash\"]\n")
     docker_file.write("\n")

@@ -1,0 +1,49 @@
+{
+    "all": [
+        "make",
+        "python",
+        "python-colorama",
+        "python-pep8",
+        "python-numpy",
+        "g++",
+        "libfl-dev",
+        "flex",
+        "bison",
+        "openssh-client",
+        "rsync",
+        "zlib1g-dev",
+        "php-cli",
+        "git",
+        "python3",
+        "lsb-release",
+        "fakeroot",
+        "qt5-qmake",
+        "qt5-default",
+        "qttools5-dev",
+        "libqt5sql5-sqlite",
+        "liblua5.3-0",
+        "libreadline-dev",
+        "liblua5.3-dev",
+        "libfftw3-dev",
+        "cmake",
+        "clang",
+        "clang-tidy",
+        "gnupg"
+    ],
+    "xenial": {
+        "amd64": [
+            "pep8",
+            "mingw-w64",
+            "doxygen",
+            "graphviz",
+            "cppcheck",
+            "python-markdown",
+            "qttools5-dev-tools"
+        ]
+    },
+    "artful": {
+        "arm64": [
+            "libne10-dev"
+        ]
+    }
+}
