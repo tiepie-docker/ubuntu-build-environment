@@ -1,0 +1,27 @@
+sudo: required
+services: docker
+language: bash
+env:
+    global:
+        - QEMU_VER=v2.9.1-1
+        - DOCKER_REPO=tiepie/ubuntu-build-environment
+    matrix:
+        - SUITE=xenial ARCH=amd64 QEMU_ARCH=x86_64
+        - SUITE=xenial ARCH=arm64 QEMU_ARCH=aarch64
+        - SUITE=xenial ARCH=armhf QEMU_ARCH=arm
+        - SUITE=xenial ARCH=i386  QEMU_ARCH=i386
+
+        - SUITE=artful ARCH=amd64 QEMU_ARCH=x86_64
+        - SUITE=artful ARCH=arm64 QEMU_ARCH=aarch64
+        - SUITE=artful ARCH=armhf QEMU_ARCH=arm
+        - SUITE=artful ARCH=i386  QEMU_ARCH=i386
+        
+        - SUITE=bionic ARCH=amd64 QEMU_ARCH=x86_64
+        - SUITE=bionic ARCH=arm64 QEMU_ARCH=aarch64
+        - SUITE=bionic ARCH=armhf QEMU_ARCH=arm
+        - SUITE=bionic ARCH=i386  QEMU_ARCH=i386
+
+script:
+    - python build.py --arch="$ARCH" --suite="$SUITE" --qemu-version="$QEMU_VER" --qemu-arch="$QEMU_ARCH" --docker-repo="$DOCKER_REPO"
+after_success:
+    - if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push $DOCKER_REPO:$ARCH-$SUITE; fi
