@@ -25,17 +25,17 @@ try:
         print("Download image file")
         base_url = "https://partner-images.canonical.com/core"
         try:
-            check_call(["wget", "--show-progress", "-O", build_directory + "/" + image_file_name, base_url + "/" + args.suite + "/current/" + image_file_name])
+            check_call(["wget", "-O", build_directory + "/" + image_file_name, base_url + "/" + args.suite + "/current/" + image_file_name])
         except Exception, e:
             print("Failed to download file trying unsupported directory", file=sys.stderr)
-            check_call(["wget", "--show-progress", "-O", build_directory + "/" + image_file_name, base_url + "/unsupported/" + args.suite + "/current/" + image_file_name])
+            check_call(["wget", "-O", build_directory + "/" + image_file_name, base_url + "/unsupported/" + args.suite + "/current/" + image_file_name])
 
     # Download qemu:
     qemu_file_name = "qemu-" + args.qemu_arch + "-static"
     if not os.path.exists(build_directory + "/" + qemu_file_name):
         print("Downloading qemu")
         qemu_file_name_tgz = "x86_64_" + qemu_file_name + ".tar.gz"
-        check_call(["wget", "--show-progress", "-O", qemu_file_name_tgz, "https://github.com/multiarch/qemu-user-static/releases/download/" + args.qemu_version + "/" + qemu_file_name_tgz])
+        check_call(["wget", "-O", qemu_file_name_tgz, "https://github.com/multiarch/qemu-user-static/releases/download/" + args.qemu_version + "/" + qemu_file_name_tgz])
         print("Extracting qemu")
         check_call(["tar", "xvf", qemu_file_name_tgz, "-C", build_directory, qemu_file_name])
 
