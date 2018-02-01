@@ -21,6 +21,9 @@ env:
         - SUITE=bionic ARCH=armhf QEMU_ARCH=arm
         - SUITE=bionic ARCH=i386  QEMU_ARCH=i386
 
+before_script:
+    - sudo apt-get update -qq
+    - sudo apt-get -y install qemu-user-static
 script:
     - python build.py --arch="$ARCH" --suite="$SUITE" --qemu-version="$QEMU_VER" --qemu-arch="$QEMU_ARCH" --docker-repo="$DOCKER_REPO"
 after_success:
