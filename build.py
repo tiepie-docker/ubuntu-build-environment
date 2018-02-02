@@ -62,6 +62,9 @@ try:
     docker_file.write("ADD " + qemu_file_name + " /usr/bin/\n")
     docker_file.write("\n")
 
+    docker_file.write("ENV DEBIAN_FRONTEND=noninteractive\n")
+    docker_file.write("\n")
+
     docker_file.write("RUN set -xe && \\\n")
     docker_file.write("    echo '#!/bin/sh' > /usr/sbin/policy-rc.d && \\\n")
     docker_file.write("    echo 'exit 101' >> /usr/sbin/policy-rc.d && \\\n")
@@ -76,6 +79,7 @@ try:
     docker_file.write("    echo 'Acquire::Languages \"none\";' > /etc/apt/apt.conf.d/docker-no-languages && \\\n")
     docker_file.write("    echo 'Acquire::GzipIndexes \"true\"; Acquire::CompressionTypes::Order:: \"gz\";' > /etc/apt/apt.conf.d/docker-gzip-indexes && \\\n")
     docker_file.write("    echo 'Apt::AutoRemove::SuggestsImportant \"false\";' > /etc/apt/apt.conf.d/docker-autoremove-suggests && \\\n")
+    docker_file.write("    apt-get clean && \\\n")
     docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
     docker_file.write("\n")
 
