@@ -42,6 +42,17 @@
         ]
     },
     "artful": {
+        "all": [
+            "git-lfs"
+        ],
+        "arm64": [
+            "libne10-dev"
+        ]
+    },
+    "bionic": {
+        "all": [
+            "git-lfs"
+        ],
         "arm64": [
             "libne10-dev"
         ]

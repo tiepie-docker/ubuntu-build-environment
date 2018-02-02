@@ -90,6 +90,12 @@ try:
         docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
         docker_file.write("\n")
 
+    if args.suite == "xenial" and args.arch in ["i386", "amd64"]:
+        docker_file.write("RUN wget -nv --content-disposition https://packagecloud.io/github/git-lfs/packages/ubuntu/xenial/git-lfs_2.3.4_" + args.arch + ".deb/download.deb && \\\n")
+        docker_file.write("    dpkg -i git-lfs_2.3.4_" + args.arch + ".deb && \\\n")
+        docker_file.write("    rm git-lfs_2.3.4_" + args.arch + ".deb\n")
+        docker_file.write("\n")
+
     docker_file.write("CMD [\"/bin/bash\"]\n")
     docker_file.write("\n")
 
