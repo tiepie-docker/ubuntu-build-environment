@@ -28,7 +28,8 @@
         "cmake",
         "clang",
         "clang-tidy",
-        "gnupg"
+        "gnupg",
+        "wget"
     ],
     "xenial": {
         "amd64": [
