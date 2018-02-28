@@ -53,7 +53,8 @@
     },
     "bionic": {
         "all": [
-            "git-lfs"
+            "git-lfs",
+            "clang-tidy-6.0"
         ],
         "arm64": [
             "libne10-dev"
