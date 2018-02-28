@@ -44,7 +44,8 @@
     },
     "artful": {
         "all": [
-            "git-lfs"
+            "git-lfs",
+            "clang-tidy-5.0"
         ],
         "arm64": [
             "libne10-dev"
