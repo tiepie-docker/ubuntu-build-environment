@@ -45,6 +45,7 @@
     "artful": {
         "all": [
             "git-lfs",
+            "libclang-common-5.0-dev",
             "clang-tidy-5.0"
         ],
         "arm64": [
@@ -54,6 +55,7 @@
     "bionic": {
         "all": [
             "git-lfs",
+            "libclang-common-6.0-dev",
             "clang-tidy-6.0"
         ],
         "arm64": [
