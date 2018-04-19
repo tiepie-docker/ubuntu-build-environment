@@ -63,6 +63,7 @@ try:
     docker_file.write("\n")
 
     docker_file.write("ENV DEBIAN_FRONTEND=noninteractive\n")
+    docker_file.write("ENV DEBCONF_NONINTERACTIVE_SEEN=true\n")
     docker_file.write("\n")
 
     docker_file.write("RUN set -xe && \\\n")
@@ -82,6 +83,12 @@ try:
     docker_file.write("    apt-get clean && \\\n")
     docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
     docker_file.write("\n")
+
+    docker_file.write("RUN apt-get update && \\\n")
+    docker_file.write("    apt-get dist-upgrade && \\\n")
+    docker_file.write("    apt-get install -y apt-utils && \\\n")
+    docker_file.write("    apt-get clean && \\\n")
+    docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
 
     if packages:
         docker_file.write("RUN apt-get update && \\\n")
