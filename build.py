@@ -85,7 +85,7 @@ try:
     docker_file.write("\n")
 
     docker_file.write("RUN apt-get update && \\\n")
-    docker_file.write("    apt-get dist-upgrade && \\\n")
+    docker_file.write("    apt-get dist-upgrade -y && \\\n")
     docker_file.write("    apt-get install -y apt-utils && \\\n")
     docker_file.write("    apt-get clean && \\\n")
     docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
