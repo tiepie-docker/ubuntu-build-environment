@@ -58,6 +58,15 @@
             "libclang-common-6.0-dev",
             "clang-tidy-6.0"
         ],
+        "amd64": [
+            "pep8",
+            "mingw-w64",
+            "doxygen",
+            "graphviz",
+            "cppcheck",
+            "python-markdown",
+            "qttools5-dev-tools"
+        ],
         "arm64": [
             "libne10-dev"
         ]
