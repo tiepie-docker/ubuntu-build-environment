@@ -70,5 +70,13 @@
         "arm64": [
             "libne10-dev"
         ]
+    },
+    "cosmic": {
+        "all": [
+            "git-lfs"
+        ],
+        "arm64": [
+            "libne10-dev"
+        ]
     }
 }
