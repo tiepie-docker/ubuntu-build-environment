@@ -20,6 +20,7 @@
         "qt5-qmake",
         "qt5-default",
         "qttools5-dev",
+        "libqt5svg5-dev",
         "libqt5sql5-sqlite",
         "liblua5.3-0",
         "libreadline-dev",
