@@ -80,5 +80,13 @@
         "arm64": [
             "libne10-dev"
         ]
+    },
+    "disco": {
+        "all": [
+            "git-lfs"
+        ],
+        "arm64": [
+            "libne10-dev"
+        ]
     }
 }
