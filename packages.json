@@ -30,7 +30,8 @@
         "clang",
         "clang-tidy",
         "gnupg",
-        "wget"
+        "wget",
+        "curl"
     ],
     "xenial": {
         "amd64": [
