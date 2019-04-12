@@ -11,6 +11,7 @@ parser.add_argument('--arch', required=True)
 parser.add_argument('--qemu-version', required=True)
 parser.add_argument('--qemu-arch', required=True)
 parser.add_argument('--docker-repo', required=True)
+parser.add_argument('--date', required=True)
 
 args = parser.parse_args()
 
@@ -109,7 +110,7 @@ try:
     docker_file.close()
 
     # Build Docker image:
-    check_call(["sudo", "docker", "build", "-t", args.docker_repo + ":" + args.arch + "-" + args.suite, "build"])
+    check_call(["sudo", "docker", "build", "-t", args.docker_repo + ":" + args.arch + "-" + args.suite, "-t", args.docker_repo + ":" + args.arch + "-" + args.suite + "-" args.date,"build"])
 
 except Exception, e:
     print(str(e), file=sys.stderr)
