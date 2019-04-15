@@ -68,10 +68,12 @@
             "graphviz",
             "cppcheck",
             "python-markdown",
-            "qttools5-dev-tools"
+            "qttools5-dev-tools",
+            "libmariadbclient-dev"
         ],
         "arm64": [
-            "libne10-dev"
+            "libne10-dev",
+            "libmariadbclient-dev"
         ]
     },
     "cosmic": {
