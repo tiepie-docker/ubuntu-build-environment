@@ -90,7 +90,7 @@
         ],
         "armhf": [
             "libne10-dev"
-        ]
+        ],
         "arm64": [
             "libne10-dev"
         ]
@@ -101,7 +101,7 @@
         ],
         "armhf": [
             "libne10-dev"
-        ]
+        ],
         "arm64": [
             "libne10-dev"
         ]
