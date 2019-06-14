@@ -27,6 +27,11 @@ env:
         - SUITE=disco ARCH=armhf QEMU_ARCH=arm
         - SUITE=disco ARCH=i386  QEMU_ARCH=i386
 
+        - SUITE=eoan ARCH=amd64 QEMU_ARCH=x86_64
+        - SUITE=eoan ARCH=arm64 QEMU_ARCH=aarch64
+        - SUITE=eoan ARCH=armhf QEMU_ARCH=arm
+        - SUITE=eoan ARCH=i386  QEMU_ARCH=i386
+
 before_script:
     - sudo apt-get update -qq
     - sudo apt-get -y install qemu-user-static
