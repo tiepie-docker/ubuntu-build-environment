@@ -88,6 +88,9 @@
         "all": [
             "git-lfs"
         ],
+        "armhf": [
+            "libne10-dev"
+        ]
         "arm64": [
             "libne10-dev"
         ]
