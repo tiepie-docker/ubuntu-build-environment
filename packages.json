@@ -32,7 +32,8 @@
         "clang-tidy",
         "gnupg",
         "wget",
-        "curl"
+        "curl",
+        "ccache"
     ],
     "xenial": {
         "amd64": [
