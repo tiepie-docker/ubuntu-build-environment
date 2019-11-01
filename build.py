@@ -41,9 +41,9 @@ try:
         print("Extracting qemu")
         check_call(["tar", "xvf", qemu_file_name_tgz, "-C", build_directory, qemu_file_name])
 
-    # Read packages.json:
+    # Read packages-apt.json:
     packages = []
-    with open("packages.json") as f:
+    with open("packages-apt.json") as f:
         data = json.load(f)
         if "all" in data:
             packages += data["all"]
