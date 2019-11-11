@@ -14,6 +14,7 @@
         "zlib1g-dev",
         "php-cli",
         "git",
+        "git-lfs",
         "python3",
         "lsb-release",
         "fakeroot",
@@ -35,31 +36,8 @@
         "curl",
         "ccache"
     ],
-    "xenial": {
-        "amd64": [
-            "pep8",
-            "mingw-w64",
-            "doxygen",
-            "graphviz",
-            "cppcheck",
-            "python-markdown",
-            "qttools5-dev-tools",
-            "gcc-arm-none-eabi"
-        ]
-    },
-    "artful": {
-        "all": [
-            "git-lfs",
-            "libclang-common-5.0-dev",
-            "clang-tidy-5.0"
-        ],
-        "arm64": [
-            "libne10-dev"
-        ]
-    },
     "bionic": {
         "all": [
-            "git-lfs",
             "libclang-common-6.0-dev",
             "clang-tidy-6.0"
         ],
@@ -78,18 +56,7 @@
             "libmariadbclient-dev"
         ]
     },
-    "cosmic": {
-        "all": [
-            "git-lfs"
-        ],
-        "arm64": [
-            "libne10-dev"
-        ]
-    },
     "disco": {
-        "all": [
-            "git-lfs"
-        ],
         "armhf": [
             "libne10-dev"
         ],
@@ -98,14 +65,29 @@
         ]
     },
     "eoan": {
-        "all": [
-            "git-lfs"
-        ],
         "armhf": [
             "libne10-dev"
         ],
         "arm64": [
             "libne10-dev"
+        ]
+    },
+    "focal": {
+        "amd64": [
+            "pycodestyle",
+            "mingw-w64",
+            "doxygen",
+            "graphviz",
+            "cppcheck",
+            "qttools5-dev-tools",
+            "libmariadbclient-dev"
+        ],
+        "armhf": [
+            "libne10-dev"
+        ],
+        "arm64": [
+            "libne10-dev",
+            "libmariadbclient-dev"
         ]
     }
 }

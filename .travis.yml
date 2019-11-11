@@ -7,20 +7,10 @@ env:
         - DOCKER_REPO=tiepie/ubuntu-build-environment
         - DATE=$(date +'%Y%m%d')
     matrix:
-        - SUITE=xenial ARCH=amd64 QEMU_ARCH=x86_64
-        - SUITE=xenial ARCH=arm64 QEMU_ARCH=aarch64
-        - SUITE=xenial ARCH=armhf QEMU_ARCH=arm
-        - SUITE=xenial ARCH=i386  QEMU_ARCH=i386
-
         - SUITE=bionic ARCH=amd64 QEMU_ARCH=x86_64
         - SUITE=bionic ARCH=arm64 QEMU_ARCH=aarch64
         - SUITE=bionic ARCH=armhf QEMU_ARCH=arm
         - SUITE=bionic ARCH=i386  QEMU_ARCH=i386
-
-        - SUITE=cosmic ARCH=amd64 QEMU_ARCH=x86_64
-        - SUITE=cosmic ARCH=arm64 QEMU_ARCH=aarch64
-        - SUITE=cosmic ARCH=armhf QEMU_ARCH=arm
-        - SUITE=cosmic ARCH=i386  QEMU_ARCH=i386
 
         - SUITE=disco ARCH=amd64 QEMU_ARCH=x86_64
         - SUITE=disco ARCH=arm64 QEMU_ARCH=aarch64
@@ -31,6 +21,11 @@ env:
         - SUITE=eoan ARCH=arm64 QEMU_ARCH=aarch64
         - SUITE=eoan ARCH=armhf QEMU_ARCH=arm
         - SUITE=eoan ARCH=i386  QEMU_ARCH=i386
+
+        - SUITE=focal ARCH=amd64 QEMU_ARCH=x86_64
+        - SUITE=focal ARCH=arm64 QEMU_ARCH=aarch64
+        - SUITE=focal ARCH=armhf QEMU_ARCH=arm
+        - SUITE=focal ARCH=i386  QEMU_ARCH=i386
 
 before_script:
     - sudo apt-get update -qq
