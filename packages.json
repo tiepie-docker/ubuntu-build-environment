@@ -34,7 +34,8 @@
         "gnupg",
         "wget",
         "curl",
-        "ccache"
+        "ccache",
+        "libssl-dev"
     ],
     "bionic": {
         "all": [
