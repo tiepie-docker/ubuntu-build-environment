@@ -25,7 +25,6 @@ env:
         - SUITE=focal ARCH=amd64 QEMU_ARCH=x86_64
         - SUITE=focal ARCH=arm64 QEMU_ARCH=aarch64
         - SUITE=focal ARCH=armhf QEMU_ARCH=arm
-        - SUITE=focal ARCH=i386  QEMU_ARCH=i386
 
 before_script:
     - sudo apt-get update -qq
