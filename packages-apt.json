@@ -57,14 +57,6 @@
             "libmariadbclient-dev"
         ]
     },
-    "disco": {
-        "armhf": [
-            "libne10-dev"
-        ],
-        "arm64": [
-            "libne10-dev"
-        ]
-    },
     "eoan": {
         "armhf": [
             "libne10-dev"
