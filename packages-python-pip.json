@@ -3,6 +3,7 @@
         "all": [
             "pycodestyle",
             "colorama",
+            "Cython",
             "numpy"
         ]
     },
