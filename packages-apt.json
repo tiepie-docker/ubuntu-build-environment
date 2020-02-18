@@ -2,9 +2,9 @@
     "all": [
         "make",
         "python",
-        "python-colorama",
-        "python-pep8",
-        "python-numpy",
+        "python-pip",
+        "python3",
+        "python3-pip",
         "g++",
         "libfl-dev",
         "flex",
@@ -15,7 +15,6 @@
         "php-cli",
         "git",
         "git-lfs",
-        "python3",
         "lsb-release",
         "fakeroot",
         "qt5-qmake",
@@ -43,12 +42,10 @@
             "clang-tidy-6.0"
         ],
         "amd64": [
-            "pep8",
             "mingw-w64",
             "doxygen",
             "graphviz",
             "cppcheck",
-            "python-markdown",
             "qttools5-dev-tools",
             "libmariadbclient-dev"
         ],

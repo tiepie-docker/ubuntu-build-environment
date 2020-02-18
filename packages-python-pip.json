@@ -1,0 +1,19 @@
+{
+    "all": {
+        "all": [
+            "pycodestyle",
+            "colorama",
+            "numpy"
+        ]
+    },
+    "xenial": {
+        "amd64": [
+            "markdown"
+        ]
+    },
+    "bionic": {
+        "amd64": [
+            "markdown"
+        ]
+    }
+}

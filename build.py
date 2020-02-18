@@ -54,6 +54,36 @@ try:
                 packages += data[args.suite][args.arch]
         packages = list(set(packages))
 
+    # Read packages-python-pip.json:
+    packages_pip = {2: [], 3: []}
+    with open("packages-python-pip.json") as f:
+        data = json.load(f)
+        if "all" in data:
+            if "all" in data["all"]:
+                for i in [2, 3]:
+                    packages_pip[i] += data["all"]["all"]
+            for i in [2, 3]:
+                p = "python" + str(i)
+                if p in data["all"]:
+                    packages_pip[i] += data["all"][p]
+        if args.suite in data:
+            if "all" in data[args.suite]:
+                if "all" in data[args.suite]["all"]:
+                    for i in [2, 3]:
+                        packages_pip[i] += data[args.suite]["all"]["all"]
+                if "python2" in data[args.suite]["all"]:
+                    packages_pip[2] += data[args.suite]["all"]["python2"]
+                if "python3" in data[args.suite]["all"]:
+                    packages_pip[3] += data[args.suite]["all"]["python3"]
+            if args.arch in data[args.suite]:
+                if "all" in data[args.suite][args.arch]:
+                    for i in range[2, 3]:
+                        packages_pip[i] += data[args.suite][args.arch]["all"]
+                if "python2" in data[args.suite][args.arch]:
+                    packages_pip[2] += data[args.suite][args.arch]["python2"]
+                if "python3" in data[args.suite][args.arch]:
+                    packages_pip[3] += data[args.suite][args.arch]["python3"]
+
     # Create Docker file:
     docker_file = open("build/Dockerfile", "w")
     docker_file.write("FROM scratch\n")
@@ -90,6 +120,7 @@ try:
     docker_file.write("    apt-get install -y apt-utils && \\\n")
     docker_file.write("    apt-get clean && \\\n")
     docker_file.write("    rm -rf /var/lib/apt/lists/*\n")
+    docker_file.write("\n")
 
     if packages:
         docker_file.write("RUN apt-get update && \\\n")
@@ -102,6 +133,10 @@ try:
         docker_file.write("RUN wget -nv --content-disposition https://packagecloud.io/github/git-lfs/packages/ubuntu/xenial/git-lfs_2.3.4_" + args.arch + ".deb/download.deb && \\\n")
         docker_file.write("    dpkg -i git-lfs_2.3.4_" + args.arch + ".deb && \\\n")
         docker_file.write("    rm git-lfs_2.3.4_" + args.arch + ".deb\n")
+        docker_file.write("\n")
+
+    for i in [2, 3]:
+        docker_file.write("RUN pip" + str(i) + " --no-cache-dir install " + (" \\\n" + " " * 32).join(packages_pip[i]) + "\n")
         docker_file.write("\n")
 
     docker_file.write("CMD [\"/bin/bash\"]\n")
