@@ -1,9 +1,7 @@
 {
     "all": [
         "make",
-        "python",
         "python-pip",
-        "python3",
         "python3-pip",
         "g++",
         "libfl-dev",
